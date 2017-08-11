@@ -241,6 +241,6 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 #nuget
-NiceLinq.nuspec
+Charger.nuspec
 NuGet.exe
 nuget.txt
