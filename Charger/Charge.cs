@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace Charger
@@ -27,6 +28,24 @@ namespace Charger
                     {
                         propTarget.SetValue(target, propSource.GetValue(source));
                     }
+                }
+                if (Attribute.IsDefined(propTarget, typeof(ConnectAttribute)))
+                {
+                    var connAttr = (ConnectAttribute)Attribute.GetCustomAttribute(propTarget, typeof(ConnectAttribute));
+                    var sp = sourceProperties.SingleOrDefault(x => x.Name == connAttr.PropName);
+                    if (sp == null)
+                    {
+                        if (connAttr.AlwaysOnSource)
+                            throw new NullReferenceException($"The property name '{connAttr.PropName}' couldn't be found on the source object.") { Source = "Mshwf.Charger" };
+                        else
+                            continue;
+                    }
+
+                    if (propTarget.PropertyType.Name != sp.PropertyType.Name)
+                    {
+                        throw new Exception($"Cannot charge '{propTarget.Name}' from '{sp.Name}', they are not of the same type.") { Source = "Mshwf.Charger" };
+                    }
+                    propTarget.SetValue(target, sp.GetValue(source));
                 }
             }
 
