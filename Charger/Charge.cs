@@ -29,14 +29,14 @@ namespace Mshwf.Charger
                         propTarget.SetValue(target, propSource.GetValue(source));
                     }
                 }
-                if (Attribute.IsDefined(propTarget, typeof(ConnectAttribute)))
+                if (Attribute.IsDefined(propTarget, typeof(SourcePropertyAttribute)))
                 {
-                    var connAttr = (ConnectAttribute)Attribute.GetCustomAttribute(propTarget, typeof(ConnectAttribute));
-                    var sp = sourceProperties.SingleOrDefault(x => x.Name == connAttr.PropName);
+                    var sourcePropAttr = (SourcePropertyAttribute)Attribute.GetCustomAttribute(propTarget, typeof(SourcePropertyAttribute));
+                    var sp = sourceProperties.SingleOrDefault(x => x.Name == sourcePropAttr.PropertyName);
                     if (sp == null)
                     {
-                        if (connAttr.AlwaysOnSource)
-                            throw new NullReferenceException($"The property name '{connAttr.PropName}' couldn't be found on the source object.") { Source = "Mshwf.Charger" };
+                        if (sourcePropAttr.AlwaysOnSource)
+                            throw new NullReferenceException($"The property name '{sourcePropAttr.PropertyName}' couldn't be found on the source object.") { Source = "Mshwf.Charger" };
                         else
                             continue;
                     }

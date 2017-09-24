@@ -2,13 +2,21 @@
 <package >
   <metadata>
     <id>Mshwf.Charger</id>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
     <title>Charger</title>
     <authors>MShawaf</authors>
     <owners>Mshawaf</owners>
     <projectUrl>https://github.com/mshwf/Charger</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Copies values from the source's pbject to the target (Framework version: 4.5)
+    <description>Copies the values of the source's object to the target object (Framework version: 4.5) 
+example: 
+Book book = context.Books.Find(id); 
+BookViewModel bookVM = new BookViewModel(); 
+bookVM.ChargeFrom(book); 
+
+//done. now bookVM has the same value as the book object
+
+
 </description>
     <releaseNotes>Adding Connect attribute; lets you explicitly specify a property to charge from</releaseNotes>
     <copyright>Copyright 2017</copyright>

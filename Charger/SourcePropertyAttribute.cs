@@ -3,24 +3,26 @@
 namespace Mshwf.Charger
 {
     /// <summary>
-    /// Use this attribute to connect a property value to a differet -but same type- property 
+    /// Use this attribute to explicitly specify a property name to charge a target's property from.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    public sealed class ConnectAttribute : Attribute
+    public sealed class SourcePropertyAttribute : Attribute
     {
-        readonly string propName;
+        readonly string propertyName;
         /// <summary>
         /// Explicitly specify a property name to charge this property from. 
         /// </summary>
-        /// <param name="propName">Source's property name to charge from.</param>
-        public ConnectAttribute(string propName)
+        /// <param name="propertyName">Source's property name to charge from.</param>
+        public SourcePropertyAttribute(string propertyName)
         {
-            this.propName = propName;
+            this.propertyName = propertyName;
         }
-
-        public string PropName
+        /// <summary>
+        /// Get the source's property name to charge from
+        /// </summary>
+        public string PropertyName
         {
-            get { return propName; }
+            get { return propertyName; }
         }
 
         /// <summary>
