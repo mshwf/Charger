@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charger", "Charger\Charger.csproj", "{C6F9CE99-B80C-4AF1-9384-1C1C0A671E00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mshwf.Charger", "Charger\Mshwf.Charger.csproj", "{C6F9CE99-B80C-4AF1-9384-1C1C0A671E00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94508CAF-5D3C-4EDF-A202-A2FD58C16896}
 	EndGlobalSection
 EndGlobal

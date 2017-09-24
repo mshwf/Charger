@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Charger
+namespace Mshwf.Charger
 {
     /// <summary>
     /// Use this attribute to connect a property value to a differet -but same type- property 
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
-    sealed class ConnectAttribute : Attribute
+    public sealed class ConnectAttribute : Attribute
     {
         readonly string propName;
         /// <summary>

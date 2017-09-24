@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Charger
+namespace Mshwf.Charger
 {
     /// <summary>
     /// Charger copies values from the source's object to the target.
