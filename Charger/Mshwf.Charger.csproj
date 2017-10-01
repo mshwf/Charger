@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Charge.cs" />
+    <Compile Include="Charger.cs" />
+    <Compile Include="DeepChargingAttribute.cs" />
+    <Compile Include="NotChargedAttribute.cs" />
     <Compile Include="SourcePropertyAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

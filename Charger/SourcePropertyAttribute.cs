@@ -2,6 +2,7 @@
 
 namespace Mshwf.Charger
 {
+   
     /// <summary>
     /// Use this attribute to explicitly specify a property name to charge a target's property from.
     /// </summary>
@@ -17,6 +18,7 @@ namespace Mshwf.Charger
         {
             this.propertyName = propertyName;
         }
+ 
         /// <summary>
         /// Get the source's property name to charge from
         /// </summary>
@@ -26,10 +28,9 @@ namespace Mshwf.Charger
         }
 
         /// <summary>
-        /// When set to false it will ignore the abscence of the property on the source object (as well any typos in propName argument), otherwise will throw exception, defaults to true.
+        /// When set to false it will ignore the abscence of the property on the source object (as well any typos in propertyName argument), otherwise will throw exception, defaults to true.
         /// </summary>
         public bool AlwaysOnSource { get; set; } = true;
-
     }
 
 }
