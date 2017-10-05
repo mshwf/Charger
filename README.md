@@ -30,7 +30,7 @@ public class ItemViewModel
     public CategoryVM CatVm { get; set; }
 }
 ```
-ChargeFrom
+## ChargeFrom
 --------------
 * If you have an object of type ````ItemViewModel```` and you want to map its properties to an ````Item```` object,
 easily call the ````ChargeFrom```` extension method on the target object (````ItemViewModel```` object), like so:
@@ -84,16 +84,16 @@ otherwise, it will throw a null reference exception, as a workaround you can ini
 public CategoryVM CatVm { get; set; } = new CategoryVm();
 ```
 But you can ignore charging it if it's ```null```, by setting ```NullTargetAction``` to ```NullTargetAction.IgnoreCharging```.
-Squeeze
 
+## Squeeze
 So far to use Charger you should have an initialized target object.
 But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` property that will just
 get you a specified object type:
 
-````csharp
+```csharp
 var newItemModel = item.Squeeze<ItemViewModel>();  //for one object
 var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 ```
 
-## Install:
-``PM> Install-Package Mshwf.Charger``
+## Install
+```PM> Install-Package Mshwf.Charger```
