@@ -3,18 +3,18 @@
 namespace Mshwf.Charger
 {
     /// <summary>
-    /// Take an appropriate action when a property used by deep charging is null, on source or target.
+    /// Take an appropriate action when the target property charged by DeepCharging is null.
     /// </summary>
-    public enum NullReferenceAction
+    public enum NullTargetAction
     {
         /// <summary>
-        /// Throw null reference exception when the property is null.
+        /// Throw null reference exception when the target property is null.
         /// </summary>
         ThrowException,
         /// <summary>
         /// Ignore charging a property if it's null.
         /// </summary>
-        Ignore
+        IgnoreCharging,
     }
     /// <summary>
     /// Charge a property of a custom type from the source's property (of a different custom type), consider using SourcePropertyAttribute if names are different.
@@ -23,8 +23,8 @@ namespace Mshwf.Charger
     public sealed class DeepChargingAttribute : Attribute
     {
         /// <summary>
-        /// Get or set the action taken by Charger when a property used by deep charging is null, default is ThrowException.
+        /// Set the action taken by Charger when a property set by DeepCharging is null, default is ThrowException.
         /// </summary>
-        public NullReferenceAction NullReferenceAction { get; set; }
+        public NullTargetAction NullTargetAction { get; set; }
     }
 }

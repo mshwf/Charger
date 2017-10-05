@@ -4,14 +4,14 @@ namespace Mshwf.Charger
 {
    
     /// <summary>
-    /// Use this attribute to explicitly specify a property name to charge a target's property from.
+    /// Use this attribute to explicitly specify a property name to charge from.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class SourcePropertyAttribute : Attribute
     {
         readonly string propertyName;
         /// <summary>
-        /// Explicitly specify a property name to charge this property from. 
+        /// Explicitly specify a property name to charge this property from.
         /// </summary>
         /// <param name="propertyName">Source's property name to charge from.</param>
         public SourcePropertyAttribute(string propertyName)
@@ -20,7 +20,7 @@ namespace Mshwf.Charger
         }
  
         /// <summary>
-        /// Get the source's property name to charge from
+        /// Get the source's property name to charge from.
         /// </summary>
         public string PropertyName
         {
@@ -28,7 +28,7 @@ namespace Mshwf.Charger
         }
 
         /// <summary>
-        /// When set to false it will ignore the abscence of the property on the source object (as well any typos in propertyName argument), otherwise will throw exception, defaults to true.
+        /// When set to false it will ignore the abscence of the property on the source object, otherwise will throw exception, defaults to true.
         /// </summary>
         public bool AlwaysOnSource { get; set; } = true;
     }
