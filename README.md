@@ -72,7 +72,7 @@ public int Id { get; set; }
 
 So far, the charging is achieved for properties that share the same type, but if you want to charge a custom property type
 from another custom property type, in the example above: 
-````CatVm``` property from ```Cat```
+```CatVm``` property from ```Cat```
 you can use ```DeepCharging``` attribute, but since they have different names, you'll need to combine it with the ```SourceProperty``` attribute to specify the source's property name:
 ```csharp
 [DeepCharging, SourceProperty("Cat")]
