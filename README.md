@@ -31,7 +31,7 @@ public class ItemViewModel
 }
 ```
 ## ChargeFrom
---------------
+
 * If you have an object of type ````ItemViewModel```` and you want to map its properties to an ````Item```` object,
 easily call the ````ChargeFrom```` extension method on the target object (````ItemViewModel```` object), like so:
 ```csharp
