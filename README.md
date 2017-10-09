@@ -98,5 +98,5 @@ var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 ## Install
 ```PM> Install-Package Mshwf.Charger```
 
-##### Contact me:
+## Contact me:
 m_shawaf at outlook dot com
