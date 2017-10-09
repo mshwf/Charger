@@ -55,7 +55,7 @@ There are 3 attributes to use on the target properties:
 Use this attribute on properties you don't want to charge.
 
 * ````SourceProperty(propertyName)````
-Use this property on target properties that have different names than the source property. for the ````ItemViewModel```` 
+Use this attribute on target properties that have different names than the source property. for the ````ItemViewModel```` 
 class you can charge the ````Id```` property from the ````ItemId```` on the ````Item```` class:
 
 ```csharp
