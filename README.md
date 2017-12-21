@@ -87,7 +87,7 @@ But you can ignore charging it if it's ```null```, by setting ```NullTargetActio
 
 ## Squeeze
 So far to use Charger you should have an initialized target object.
-But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` property that will just
+But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` method that will just
 get you a specified object type:
 
 ```csharp
