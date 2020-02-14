@@ -41,6 +41,16 @@ namespace Mshwf.Charger
             return target;
         }
 
+        public static TTarget Squeeze<TTarget>(this TTarget source) where TTarget : class, new()
+        {
+            if (source == null)
+                throw new NullReferenceException() { Source = assemblyName };
+            TTarget target = new TTarget();
+            ChargeProperties(target, source);
+            return target;
+        }
+
+
         /// <summary>
         /// Charge a list from another list of different type.
         /// </summary>
