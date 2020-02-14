@@ -31,7 +31,7 @@ public class ItemViewModel
 }
 ```
 ## ChargeFrom
---------------
+
 * If you have an object of type ````ItemViewModel```` and you want to map its properties to an ````Item```` object,
 easily call the ````ChargeFrom```` extension method on the target object (````ItemViewModel```` object), like so:
 ```csharp
@@ -55,7 +55,7 @@ There are 3 attributes to use on the target properties:
 Use this attribute on properties you don't want to charge.
 
 * ````SourceProperty(propertyName)````
-Use this property on target properties that have different names than the source property. for the ````ItemViewModel```` 
+Use this attribute on target properties that have different names than the source property. for the ````ItemViewModel```` 
 class you can charge the ````Id```` property from the ````ItemId```` on the ````Item```` class:
 
 ```csharp
@@ -87,7 +87,7 @@ But you can ignore charging it if it's ```null```, by setting ```NullTargetActio
 
 ## Squeeze
 So far to use Charger you should have an initialized target object.
-But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` property that will just
+But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` method that will just
 get you a specified object type:
 
 ```csharp
@@ -97,6 +97,3 @@ var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 
 ## Install
 ```PM> Install-Package Mshwf.Charger```
-
-##### Contact me:
-m_shawaf at outlook dot com
