@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Mshwf.Charger.Settings;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Mshwf.Charger
 {
@@ -11,6 +13,7 @@ namespace Mshwf.Charger
     /// </summary>
     public static class Charger
     {
+        public static ChargerSettings ChargerSettings = new ChargerSettings();
         static readonly string assemblyName = typeof(Charger).Assembly.GetName().Name;
         static readonly string exAlwaysOnSource = "The property name '{0}' couldn't be found on the source object, if the property on target class isn't always on source object, set AlwaysOnSource to false in the SourcePropertyAttribute to ignore charging it.";
         static readonly string exNullAction = "Property '{0}' in the target object is null and cannot be charged from property '{1}' in the source object, if you want to ignore charging null properties, specify NullTargetAction.IgnoreCharging in DeepChargingAttribute.";
@@ -102,12 +105,28 @@ namespace Mshwf.Charger
                     SourcePropertyAttribute sourcePropAttr;
                     DeepChargingAttribute deepChargingAttr;
 
-                    if (!(attrs.Any(x => x is SourcePropertyAttribute)) && !(attrs.Any(x => x is DeepChargingAttribute)))
+                    if (!attrs.Any(x => x is SourcePropertyAttribute) && !attrs.Any(x => x is DeepChargingAttribute))
                     {
                         var propSource = sourceProperties.SingleOrDefault(x => x.Name == propTarget.Name && x.PropertyType == propTarget.PropertyType);
                         if (propSource != null)
                         {
-                            propTarget.SetValue(target, propSource.GetValue(source));
+                            if (propTarget.CanWrite)
+                                propTarget.SetValue(target, propSource.GetValue(source));
+                            else if (ChargerSettings.ForceWriteReadonlyProperties)
+                            {
+                                var backingField = source.GetType()
+  .GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+  .FirstOrDefault(field =>
+    field.Attributes.HasFlag(FieldAttributes.Private) &&
+    field.Attributes.HasFlag(FieldAttributes.InitOnly) &&
+    field.CustomAttributes.Any(attr => attr.AttributeType == typeof(CompilerGeneratedAttribute)) &&
+    (field.DeclaringType == propTarget.DeclaringType) &&
+    field.FieldType.IsAssignableFrom(propTarget.PropertyType) &&
+    field.Name.StartsWith("<" + propTarget.Name + ">"));
+
+                                backingField.SetValue(target, propSource.GetValue(source));
+
+                            }
                         }
                     }
 
