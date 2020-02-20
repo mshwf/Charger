@@ -1,4 +1,4 @@
-# Charger
+# Charger [![](https://img.shields.io/badge/nuget-1.0.0-135DF4)](https://www.nuget.org/packages/Mshwf.Charger/)
 
 ### What is Charger?
 
