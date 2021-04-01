@@ -1,13 +1,13 @@
 # Charger [![](https://img.shields.io/badge/nuget-2.1.0-135DF4)](https://www.nuget.org/packages/Mshwf.Charger/)
 
-### What is Charger?
+## What is Charger?
 
 Charger is an object mapper, for easily mapping between properties in two objects.
 The library has 4 methods as follows:
 * ````ChargeFrom```` (2 overloads)
 * ````Squeeze<TTarget>```` (2 overloads)
 
-### Get started
+## Get started
 
 For explaining the use of Charger consider these two example classes:
 ```csharp
@@ -30,7 +30,7 @@ public class ItemViewModel
     public CategoryVM CatVm { get; set; }
 }
 ```
-## ChargeFrom
+### ChargeFrom
 
 * If you have an object of type ````ItemViewModel```` and you want to map its properties to an ````Item```` object,
 easily call the ````ChargeFrom```` extension method on the target object (````ItemViewModel```` object), like so:
@@ -47,7 +47,7 @@ Note:
 property will not touched by Charger.
 * If the target list contains items, Charger will just add to them from the source.
 
-Attributes
+### Attributes
 --------------
 There are 3 attributes to use on the target properties:
 
@@ -85,7 +85,7 @@ public CategoryVM CatVm { get; set; } = new CategoryVm();
 ```
 But you can ignore charging it if it's ```null```, by setting ```NullTargetAction``` to ```NullTargetAction.IgnoreCharging```.
 
-## Squeeze
+### Squeeze
 So far to use Charger you should have an initialized target object.
 But if all what you want is getting a fresh object out of another object, you can use ```Squeeze``` method that will just
 get you a specified object type:
@@ -95,5 +95,5 @@ var newItemModel = item.Squeeze<ItemViewModel>();  //for one object
 var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 ```
 
-## Install
+#### Install
 ```PM> Install-Package Mshwf.Charger```
