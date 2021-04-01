@@ -95,5 +95,5 @@ var newItemModel = item.Squeeze<ItemViewModel>();  //for one object
 var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 ```
 
-### Install
+## Install
 ```PM> Install-Package Mshwf.Charger```
