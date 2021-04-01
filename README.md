@@ -48,7 +48,7 @@ property will not touched by Charger.
 * If the target list contains items, Charger will just add to them from the source.
 
 ### Attributes
---------------
+
 There are 3 attributes to use on the target properties:
 
 * ````NotCharged````
@@ -95,5 +95,5 @@ var newItemModel = item.Squeeze<ItemViewModel>();  //for one object
 var newItemsModel = items.Squeeze<ItemViewModel>(); //for list of objects
 ```
 
-#### Install
+### Install
 ```PM> Install-Package Mshwf.Charger```
